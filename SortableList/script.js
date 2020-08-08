@@ -83,7 +83,9 @@ function createList() {
       listItem.innerHTML = `
     <span class="number">${index + 1}</span>
     <div class="draggable" draggable="true">
-    <p class="person-name">${person.name}</p>
+    <p class="person-name">${
+      person.name + " $" + person.worthInBillionDollars
+    }</p>
     <i class="fa fa-grip-lines"></i>
     </div>
     `;
@@ -134,9 +136,12 @@ function checkOrder() {
   listItems.forEach((listItem, index) => {
     // const personName = listItem.querySelector(".draggable").innerText.trim();
     const personName = listItem.querySelector(".person-name").innerHTML.trim();
-    console.log(listItem);
+    // console.log(listItem);
+    const temp = personName.split(" ", 2);
+    // console.log(temp[0] + " " + temp[1]);
     // console.log(personName, richestPeople[index].name);
-    if (personName !== richestPeople[index].name) {
+    let personNameTemp = temp[0] + " " + temp[1];
+    if (personNameTemp !== richestPeople[index].name) {
       listItem.classList.add("wrong");
     } else {
       listItem.classList.remove("wrong");
