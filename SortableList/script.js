@@ -99,7 +99,7 @@ function createList() {
 function dragStart() {
   //   console.log("Event", "dragStart");
   dragStartIndex = +this.closest("li").getAttribute("data-index");
-  console.log(dragStartIndex);
+  // console.log(dragStartIndex);
 }
 
 function dragOver(e) {
@@ -140,8 +140,8 @@ function checkOrder() {
     const temp = personName.split(" ", 2);
     // console.log(temp[0] + " " + temp[1]);
     // console.log(personName, richestPeople[index].name);
-    let personNameTemp = temp[0] + " " + temp[1];
-    if (personNameTemp !== richestPeople[index].name) {
+    // let personNameTemp = temp[0] + " " + temp[1];
+    if (temp.join(" ") !== richestPeople[index].name) {
       listItem.classList.add("wrong");
     } else {
       listItem.classList.remove("wrong");
